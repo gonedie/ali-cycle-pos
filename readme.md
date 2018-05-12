@@ -1,6 +1,6 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="left"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<h1 align="center">Aplikasi Point Of Sale Toko Sepeda Ali Cycle</h1>
+<h1 align="left">Aplikasi Point Of Sale Toko Sepeda Ali Cycle</h1>
 
 [![Build Status](https://travis-ci.org/gonedie/ali-cycle-pos.svg?branch=master)](https://travis-ci.org/gonedie/ali-cycle-pos)
 
