@@ -22,6 +22,7 @@ class CreateStoksTable extends Migration
             $table->integer('penjualan_stok');
             $table->unsignedInteger('harga_beli');
             $table->unsignedInteger('total');
+            $table->timestamp('tgl_masuk');
             $table->integer('unit_id')->unsigned();
             $table->timestamps();
 
