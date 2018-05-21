@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('admin/dashboard', function () {
+    return view('layouts/dashboard');
+});
+
+Route::resource('admin/type-merk', 'TypeController', ['except' => ['create', 'show', 'edit']]);

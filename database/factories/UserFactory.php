@@ -1,3 +1,4 @@
+
 <?php
 
 use Faker\Generator as Faker;
@@ -16,8 +17,33 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'username' => $faker->unique()->username,
+        'password' => 'secret', // secret
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\TypeMerk::class, function (Faker $faker) {
+    return [
+        'nama_type' => $faker->name,
+    ];
+});
+
+$factory->define(App\ProductsUnit::class, function (Faker $faker) {
+    return [
+        'nama_unit' => $faker->name,
+        'harga_jual' => 2000,
+        'kondisi' => $faker->name,
+        'type_merk_id' => function(){
+            return factory(App\TypeMerk::class)->create()->id;
+        },
+    ];
+});
+
+$factory->define(App\Supplier::class, function (Faker $faker) {
+    return [
+        'nama' => $faker->name,
+        'tlpn' => $faker->phoneNumber,
+        'alamat' => $faker->sentence,
     ];
 });

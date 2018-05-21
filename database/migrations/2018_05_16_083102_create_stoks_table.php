@@ -23,10 +23,10 @@ class CreateStoksTable extends Migration
             $table->unsignedInteger('harga_beli');
             $table->unsignedInteger('total');
             $table->timestamp('tgl_masuk');
-            $table->integer('unit_id')->unsigned();
+            $table->integer('products_unit_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('unit_id')->references('id')->on('products_units');
+            $table->foreign('products_unit_id')->references('id')->on('products_units');
         });
     }
 

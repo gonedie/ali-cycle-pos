@@ -18,10 +18,10 @@ class CreateProductsUnitsTable extends Migration
             $table->string('nama_unit', 100);
             $table->unsignedInteger('harga_jual');
             $table->string('kondisi', 10);
-            $table->integer('type_id')->unsigned();
+            $table->integer('type_merk_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('type_id')->references('id')->on('type_merks');
+            $table->foreign('type_merk_id')->references('id')->on('type_merks');
         });
     }
 

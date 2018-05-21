@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class TypeMerk extends Model
 {
+    protected $fillable = ['nama_type'];
+
     public function products_unit()
     {
-        retrun $this->hasMany('App\ProductsUnit');
+        return $this->hasMany(ProductsUnit::class);
     }
 }
