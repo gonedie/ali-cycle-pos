@@ -45,17 +45,16 @@ class TypeController extends Controller
 
     public function destroy(Request $request, TypeMerk $type_merk)
     {
-        if ($request->get('type_merk_id') == $type_merk->id && $type_merk->delete()) {
-            flash(trans('type.deleted'), 'success');
-
-            return redirect()->route('type-merk.index');
-        }
-        
         $this->validate($request, [
           'type_merk_id' => 'required|exists:type_merks,id|not_exists:products_units,type_merk_id',
         ], [
           'type_merk_id.not_exists' => trans('type.undeleteable'),
         ]);
+        if ($request->get('type_merk_id') == $type_merk->id && $type_merk->delete()) {
+            flash(trans('type.deleted'), 'success');
+
+            return redirect()->route('type-merk.index');
+        }
 
         flash(trans('type.undeleted'), 'error');
 

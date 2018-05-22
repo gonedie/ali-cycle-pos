@@ -15,6 +15,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        /** Validate Controller */
+        \Validator::extend('not_exists', function ($attribute, $value, $parameters) {
+            return \DB::table($parameters[0])
+                ->where($parameters[1], $value)
+                ->count() < 1;
+        });
     }
 
     /**

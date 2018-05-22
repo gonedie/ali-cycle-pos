@@ -94,22 +94,22 @@ class ManageTypeMerkTest extends BrowserKitTestCase
     }
 
     /** @test */
-    // public function user_can_not_delete_a_unit_that_has_product()
-    // {
-    //     $product = factory(ProductsUnit::class)->create();
-    //     $unitId = $product->type_merk_id;
-    //
-    //     $this->visit(route('type-merk.index'));
-    //     $this->click('del-unit-'.$unitId);
-    //     $this->seePageIs(route('type-merk.index', ['action' => 'delete', 'id' => $unitId]));
-    //
-    //     $this->press(trans('app.delete_confirm_button'));
-    //
-    //     $this->see(trans('type.undeleteable'));
-    //     $this->seePageIs(route('type-merk.index', ['action' => 'delete', 'id' => $unitId]));
-    //
-    //     $this->seeInDatabase('products_units', [
-    //         'id' => $unitId,
-    //     ]);
-    // }
+    public function user_can_not_delete_a_unit_that_has_product()
+    {
+        $product = factory(ProductsUnit::class)->create();
+        $unitId = $product->type_merk_id;
+
+        $this->visit(route('type-merk.index'));
+        $this->click('del-unit-'.$unitId);
+        $this->seePageIs(route('type-merk.index', ['action' => 'delete', 'id' => $unitId]));
+
+        $this->press(trans('app.delete_confirm_button'));
+
+        $this->see(trans('type.undeleteable'));
+        $this->seePageIs(route('type-merk.index', ['action' => 'delete', 'id' => $unitId]));
+
+        $this->seeInDatabase('products_units', [
+            'id' => $unitId,
+        ]);
+    }
 }
