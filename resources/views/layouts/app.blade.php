@@ -57,8 +57,8 @@
       </nav>
 
       <div id="page-wrapper">
-          @include('flash::message')
           <div class="container-fluid">
+                @include('flash::message')
                 @yield('content')
           </div>
           <!-- /.row -->
@@ -85,6 +85,11 @@
       <script>
           $('div.notifier').not('.alert-important').delay(5000).fadeOut(350);
       </script>
+      <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
       @yield('script')
     </body>
 </html>

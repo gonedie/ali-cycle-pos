@@ -19,3 +19,5 @@ Route::get('admin/dashboard', function () {
 });
 
 Route::resource('admin/type-merk', 'TypeController', ['except' => ['create', 'show', 'edit']]);
+
+Route::resource('admin/supplier', 'SupplierController', ['except' => ['create', 'show', 'edit']]);

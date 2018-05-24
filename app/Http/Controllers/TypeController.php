@@ -7,7 +7,8 @@ use App\TypeMerk;
 
 class TypeController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $editableUnit = null;
         $typeMerks = TypeMerk::withCount('products_unit')->get();
 
@@ -18,7 +19,8 @@ class TypeController extends Controller
         return view('type.index', compact('typeMerks', 'editableUnit'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $newUnit = $request->validate([
             'nama_type' => 'required|max:60',
         ]);
