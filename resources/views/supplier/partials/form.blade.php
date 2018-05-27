@@ -24,8 +24,8 @@
                 {!! FormField::text('nama', ['label' => trans('supplier.supplier'), 'required' => true]) !!}
                 {!! FormField::text('tlpn', ['label' => trans('supplier.tlpn'), 'required' => true]) !!}
                 {!! FormField::textarea('alamat', ['label' => trans('supplier.alamat'), 'required' => true]) !!}
-                {{ link_to_route('supplier.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
                 {!! Form::submit(trans('supplier.update'), ['class' => 'btn btn-success']) !!}
+                {{ link_to_route('supplier.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
                 {!! Form::close() !!}
             </div>
         </div>

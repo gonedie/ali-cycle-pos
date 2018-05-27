@@ -10,7 +10,7 @@ class TypeController extends Controller
     public function index(Request $request)
     {
         $editableUnit = null;
-        $typeMerks = TypeMerk::withCount('products_unit')->get();
+        $typeMerks = TypeMerk::withCount('product')->get();
 
         if (in_array($request->get('action'), ['edit', 'delete']) && $request->has('id')) {
             $editableUnit = TypeMerk::find($request->get('id'));
@@ -48,7 +48,7 @@ class TypeController extends Controller
     public function destroy(Request $request, TypeMerk $type_merk)
     {
         $this->validate($request, [
-          'type_merk_id' => 'required|exists:type_merks,id|not_exists:products_units,type_merk_id',
+          'type_merk_id' => 'required|exists:type_merks,id|not_exists:products,type_merk_id',
         ], [
           'type_merk_id.not_exists' => trans('type.undeleteable'),
         ]);

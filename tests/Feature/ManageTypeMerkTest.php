@@ -6,7 +6,7 @@ namespace Tests\Feature;
 // use Illuminate\Foundation\Testing\WithFaker;
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\TypeMerk;
-use App\ProductsUnit;
+use App\Product;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\BrowserKitTestCase;
 
@@ -96,7 +96,7 @@ class ManageTypeMerkTest extends BrowserKitTestCase
     /** @test */
     public function user_can_not_delete_a_unit_that_has_product()
     {
-        $product = factory(ProductsUnit::class)->create();
+        $product = factory(Product::class)->create();
         $unitId = $product->type_merk_id;
 
         $this->visit(route('type-merk.index'));
@@ -108,7 +108,7 @@ class ManageTypeMerkTest extends BrowserKitTestCase
         $this->see(trans('type.undeleteable'));
         $this->seePageIs(route('type-merk.index', ['action' => 'delete', 'id' => $unitId]));
 
-        $this->seeInDatabase('products_units', [
+        $this->seeInDatabase('products', [
             'id' => $unitId,
         ]);
     }

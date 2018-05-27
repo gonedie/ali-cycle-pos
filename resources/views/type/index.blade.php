@@ -22,7 +22,7 @@
                     <tr>
                         <td class="text-center">{{ 1 + $key }}</td>
                         <td>{{ $type->nama_type }}</td>
-                        <td class="text-center">{{ $type->products_unit_count }}</td>
+                        <td class="text-center">{{ $type->product_count }}</td>
                         <td class="text-center">
                             {!! link_to_route('type-merk.index', trans('app.edit'), ['action' => 'edit', 'id' => $type->id], ['id' => 'edit-unit-' . $type->id]) !!} |
                             {!! link_to_route('type-merk.index', trans('app.delete'), ['action' => 'delete', 'id' => $type->id], ['id' => 'del-unit-' . $type->id]) !!}

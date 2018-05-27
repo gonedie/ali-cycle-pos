@@ -7,8 +7,8 @@
             <div class="panel-body">
               {!! Form::open(['route' => 'type-merk.store']) !!}
               {!! FormField::text('nama_type', ['label' => trans('type.name'), 'required' => true]) !!}
-              {{ link_to_route('type-merk.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
               {!! Form::submit(trans('type.create'), ['class' => 'btn btn-success']) !!}
+              {{ link_to_route('type-merk.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
               {!! Form::close() !!}
             </div>
         </div>
@@ -20,8 +20,8 @@
             <div class="panel-body">
               {!! Form::model($editableUnit, ['route' => ['type-merk.update', $editableUnit->id],'method' => 'patch']) !!}
               {!! FormField::text('nama_type', ['label' => trans('type.name'), 'required' => true]) !!}
-              {{ link_to_route('type-merk.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
               {!! Form::submit(trans('type.update'), ['class' => 'btn btn-success']) !!}
+              {{ link_to_route('type-merk.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
               {!! Form::close() !!}
             </div>
         </div>

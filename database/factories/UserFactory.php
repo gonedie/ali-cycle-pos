@@ -1,4 +1,3 @@
-
 <?php
 
 use Faker\Generator as Faker;
@@ -29,9 +28,9 @@ $factory->define(App\TypeMerk::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\ProductsUnit::class, function (Faker $faker) {
+$factory->define(App\Product::class, function (Faker $faker) {
     return [
-        'nama_unit' => $faker->name,
+        'name' => $faker->name,
         'harga_jual' => 2000,
         'kondisi' => $faker->name,
         'type_merk_id' => function(){
