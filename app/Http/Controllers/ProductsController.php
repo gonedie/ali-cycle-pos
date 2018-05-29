@@ -30,7 +30,7 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $newProduct = $request->validate([
-            'name'          => 'required|max:60',
+            'name'          => 'required|max:60|unique:products,name',
             'harga_jual'    => 'required|numeric',
             'kondisi'       => 'required|max:10',
             'type_merk_id'  => 'required|numeric',
@@ -46,7 +46,7 @@ class ProductsController extends Controller
     public function update(Request $request, Product $product)
     {
         $productData = $request->validate([
-          'name'     => 'required|max:60',
+          'name'          => 'required|max:60',
           'harga_jual'    => 'required|numeric',
           'kondisi'       => 'required|max:10',
           'type_merk_id'  => 'required|numeric',

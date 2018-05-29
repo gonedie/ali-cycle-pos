@@ -42,7 +42,14 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->type_merk->nama_type }}</td>
                         <td class="text-center">{{ formatRp($product->harga_jual) }}</td>
-                        <td class="text-center">{{ $product->kondisi }}</td>
+                        <td class="text-center">
+                            @if ($product->kondisi == 'Baru')
+                                <span class="label label-primary">{{ $product->kondisi }}</span>
+                            @endif
+                            @if ($product->kondisi == 'Bekas')
+                              <span class="label label-default">{{ $product->kondisi }}</span>
+                            @endif
+                        </td>
                         <td class="text-center">
                             {!! link_to_route('products.index', __('app.edit'), ['action' => 'edit', 'id' => $product->id] + request(['page','q']), ['id' => 'edit-product-' . $product->id]) !!} |
                             {!! link_to_route('products.index', __('app.delete'), ['action' => 'delete', 'id' => $product->id] + request(['page','q']), ['id' => 'del-product-' . $product->id]) !!}

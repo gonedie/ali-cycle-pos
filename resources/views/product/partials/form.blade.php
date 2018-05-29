@@ -1,6 +1,6 @@
 @inject('type_merk', 'App\TypeMerk')
 @if (Request::get('action') == 'create')
-    <div class="panel panel-success">
+    <div class="panel panel-primary">
         <div class="panel-heading"><h3 class="panel-title">{{ __('product.create') }}</h3></div>
         <div class="panel-body">
             {!! Form::open(['route' => 'products.store']) !!}
@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-md-8">{!! FormField::price('harga_jual', ['label' => __('product.cash_price'), 'required' => true]) !!}</div>
             </div>
-            {!! FormField::text('kondisi', ['label' => __('product.kondisi'), 'required' => true]) !!}
+            {!! FormField::radios('kondisi', ['Baru' => 'Baru', 'Bekas' => 'Bekas'], ['label' => __('product.kondisi'), 'required' => true]) !!}
             {!! FormField::select('type_merk_id', $type_merk->pluck('nama_type','id'), ['label' => __('product.unit'), 'required' => true]) !!}
             {!! Form::submit(__('product.create'), ['class' => 'btn btn-success']) !!}
             {{ link_to_route('products.index', __('app.cancel'), [], ['class' => 'btn btn-default']) }}
@@ -25,7 +25,7 @@
           <div class="row">
             <div class="col-md-8">{!! FormField::price('harga_jual', ['label' => __('product.cash_price'), 'required' => true]) !!}</div>
           </div>
-          {!! FormField::text('kondisi', ['label' => __('product.kondisi'), 'required' => true]) !!}
+          {!! FormField::radios('kondisi', ['Baru' => 'Baru', 'Bekas' => 'Bekas'], ['label' => __('product.kondisi'), 'required' => true]) !!}
           {!! FormField::select('type_merk_id', $type_merk->pluck('nama_type','id'), ['label' => __('product.unit'), 'required' => true]) !!}
           @if (request('q'))
             {{ Form::hidden('q', request('q')) }}

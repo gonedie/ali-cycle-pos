@@ -2,7 +2,7 @@
 {{ link_to_route('supplier.index', trans('supplier.create'), ['action' => 'create'], ['class' => 'btn btn-success pull-right']) }}
 @endif
 @if (Request::get('action') == 'create')
-    <div class="panel panel-success class">
+    <div class="panel panel-primary class">
         <div class="panel-heading"><h3 class="panel-title">{{ trans('supplier.create') }}</h3></div>
             <div class="panel-body">
                 {!! Form::open(['route' => 'supplier.store']) !!}
