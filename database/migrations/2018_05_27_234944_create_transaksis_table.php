@@ -18,7 +18,6 @@ class CreateTransaksisTable extends Migration
             $table->char('invoice_no', 8)->unique();
             $table->text('items');
             $table->string('customer');
-            $table->string('tlpn_cust', 20);
             $table->unsignedInteger('payment');
             $table->unsignedInteger('total');
             $table->integer('user_id')->unsigned();
