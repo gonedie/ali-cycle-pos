@@ -48,3 +48,12 @@ Route::get('admin/transactions', ['as' => 'transactions.index', 'uses' => 'Trans
 Route::get('admin/transactions/{transaction}', ['as' => 'transactions.show', 'uses' => 'TransactionsController@show']);
 Route::get('admin/transactions/{transaction}/pdf', ['as' => 'transactions.pdf', 'uses' => 'TransactionsController@pdf']);
 Route::get('admin/transactions/{transaction}/receipt', ['as' => 'transactions.receipt', 'uses' => 'TransactionsController@receipt']);
+
+/** Reports Routes */
+  Route::group(['prefix' => 'admin/reports'], function () {
+      /** Sales Routes */
+      Route::get('sales', ['as' => 'reports.sales.index', 'uses' => 'Reports\SalesController@monthly']);
+      Route::get('sales/daily', ['as' => 'reports.sales.daily', 'uses' => 'Reports\SalesController@daily']);
+      Route::get('sales/monthly', ['as' => 'reports.sales.monthly', 'uses' => 'Reports\SalesController@monthly']);
+      Route::get('sales/yearly', ['as' => 'reports.sales.yearly', 'uses' => 'Reports\SalesController@yearly']);
+  });

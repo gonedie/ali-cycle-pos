@@ -13,20 +13,20 @@ class CartControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
-    // /** @test */
-    // public function user_can_add_new_draft_into_cart()
-    // {
-    //     // $this->loginAsUser();
-    //
-    //     $cart = new CartCollection();
-    //
-    //     $response = $this->post(route('cart.add'), ['create-cash-draft' => trans('transaction.create_cash')]);
-    //     $response->assertSessionHas('transactions.drafts');
-    //
-    //     $cashDraft = $cart->content()->first();
-    //     $this->assertTrue($cashDraft instanceof CashDraft);
-    //
-    // }
+    /** @test */
+    public function user_can_add_new_draft_into_cart()
+    {
+        // $this->loginAsUser();
+
+        $cart = new CartCollection();
+
+        $response = $this->post(route('cart.add'), ['create-cash-draft' => trans('transaction.create_cash')]);
+        $response->assertSessionHas('transaksis.drafts');
+
+        $cashDraft = $cart->content()->first();
+        $this->assertTrue($cashDraft instanceof CashDraft);
+
+    }
 
     /** @test */
     public function user_can_add_item_product_into_cash_draft()
