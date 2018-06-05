@@ -16,6 +16,7 @@
     {{ Html::style('admin/dist/css/sb-admin-2.css') }}
     {{ Html::style('admin/vendor/morrisjs/morris.css') }}
     {{ Html::style('admin/vendor/font-awesome/css/font-awesome.min.css') }}
+    {{ Html::style('css/plugins/jquery.datetimepicker.css') }}
 
   </head>
   <body>
@@ -80,6 +81,7 @@
       {{ Html::script(url('admin/vendor/morrisjs/morris-data.js')) }}
       <!-- Custom Theme JavaScript -->
       {{ Html::script(url('admin/dist/js/sb-admin-2.js')) }}
+      {{ Html::script(url('js/plugins/jquery.datetimepicker.js')) }}
 
       @stack('ext_js')
       <script>

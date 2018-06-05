@@ -2,9 +2,12 @@
 
 namespace App\Cart;
 
-use Illuminate\Database\Eloquent\Model;
-
-class CashDraft extends Model
+/**
+ * Cash Draft.
+ */
+class CashDraft extends TransactionDraft
 {
-    //
+    public $draftKey;
+    public $type = 'cash';
+    public $type_id = 1;
 }

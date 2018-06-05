@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -14,7 +15,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'password',
     ];
 
     /**
@@ -28,6 +29,6 @@ class User extends Model
 
     public function transaksi()
     {
-        return $this->hasMany('App\Transaksi');
+        return $this->hasMany(Transaksi::class);
     }
 }

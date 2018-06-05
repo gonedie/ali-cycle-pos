@@ -1,185 +1,91 @@
 <?php
 
-namespace Tests\Feature;
-
-use App\Product;
-use App\Unit;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\BrowserKitTestCase;
-
-class ManageProductsTest extends BrowserKitTestCase
+function formatDate($date)
 {
-    use DatabaseMigrations;
-
-    /** @test */
-    public function user_can_see_paginated_product_list_in_product_index_page()
-    {
-        $product1 = factory(Product::class)->create(['name' => 'Testing 123']);
-        $product2 = factory(Product::class)->create(['name' => 'Testing 456']);
-
-        $this->loginAsUser();
-        $this->visit(route('products.index'));
-        $this->see($product1->name);
-        $this->see($product2->name);
+    if (!$date || $date == '0000-00-00') {
+        return;
     }
 
-    /** @test */
-    public function user_can_search_product_by_keyword()
-    {
-        $this->loginAsUser();
-        $product1 = factory(Product::class)->create(['name' => 'Testing 123']);
-        $product2 = factory(Product::class)->create(['name' => 'Testing 456']);
+    $explodedDate = explode('-', $date);
 
-        $this->visit(route('products.index'));
-        $this->submitForm(trans('product.search'), ['q' => '123']);
-        $this->seePageIs(route('products.index', ['q' => 123]));
-
-        $this->see($product1->name);
-        $this->dontSee($product2->name);
+    if (count($explodedDate) == 3 && checkdate($explodedDate[1], $explodedDate[0], $explodedDate[2])) {
+        return $explodedDate[2].'-'.$explodedDate[1].'-'.$explodedDate[0];
+    } elseif (count($explodedDate) == 3 && checkdate($explodedDate[1], $explodedDate[2], $explodedDate[0])) {
+        return $explodedDate[2].'-'.$explodedDate[1].'-'.$explodedDate[0];
     }
 
-    /** @test */
-    public function user_can_create_a_product()
-    {
-        $unit = factory(Unit::class)->create(['name' => 'Testing 123']);
-        $this->loginAsUser();
-        $this->visit(route('products.index'));
+    throw new App\Exceptions\InvalidDateException('Invalid date format.');
+}
 
-        $this->click(trans('product.create'));
-        $this->seePageIs(route('products.index', ['action' => 'create']));
-
-        $this->type('Product 1', 'name');
-        $this->type('1000', 'cash_price');
-        $this->type('1200', 'credit_price');
-        $this->type($unit->id, 'unit_id');
-        $this->press(trans('product.create'));
-
-        $this->seePageIs(route('products.index'));
-        $this->see(trans('product.created'));
-
-        $this->seeInDatabase('products', [
-            'name'         => 'Product 1',
-            'cash_price'   => 1000,
-            'credit_price' => 1200,
-        ]);
+function dateId($date)
+{
+    if (is_null($date) || $date == '0000-00-00') {
+        return '-';
     }
 
-    /** @test */
-    public function user_can_edit_a_product_within_search_query()
-    {
-        $unit = factory(Unit::class)->create(['name' => 'Testing 123']);
-        $this->loginAsUser();
-        $product = factory(Product::class)->create(['name' => 'Testing 123']);
+    $explodedDate = explode('-', $date);
 
-        $this->visit(route('products.index', ['q' => '123']));
-        $this->click('edit-product-'.$product->id);
-        $this->seePageIs(route('products.index', ['action' => 'edit', 'id' => $product->id, 'q' => '123']));
+    if (count($explodedDate) == 3 && checkdate($explodedDate[1], $explodedDate[2], $explodedDate[0])) {
+        $months = getMonths();
 
-        $this->type('Product 1', 'name');
-        $this->type('1000', 'cash_price');
-        $this->type('1200', 'credit_price');
-        $this->type($unit->id, 'unit_id');
-        $this->press(trans('product.update'));
-
-        $this->seePageIs(route('products.index', ['q' => '123']));
-
-        $this->seeInDatabase('products', [
-            'name'         => 'Product 1',
-            'cash_price'   => 1000,
-            'credit_price' => 1200,
-        ]);
+        return $explodedDate[2].' '.$months[$explodedDate[1]].' '.$explodedDate[0];
     }
 
-    /** @test */
-    public function user_can_create_a_product_with_only_cash_price()
-    {
-        $unit = factory(Unit::class)->create(['name' => 'Testing 123']);
-        $this->loginAsUser();
-        $this->visit(route('products.index'));
+    throw new App\Exceptions\InvalidDateException('Invalid date format.');
+}
 
-        $this->click(trans('product.create'));
-        $this->seePageIs(route('products.index', ['action' => 'create']));
+function monthNumber($number)
+{
+    return str_pad($number, 2, '0', STR_PAD_LEFT);
+}
 
-        $this->type('Product 1', 'name');
-        $this->type('1000', 'cash_price');
-        $this->type('', 'credit_price');
-        $this->type($unit->id, 'unit_id');
-        $this->press(trans('product.create'));
-
-        $this->seePageIs(route('products.index'));
-        $this->see(trans('product.created'));
-
-        $this->seeInDatabase('products', [
-            'name'         => 'Product 1',
-            'cash_price'   => 1000,
-            'credit_price' => null,
-        ]);
+function monthId($monthNumber)
+{
+    if (is_null($monthNumber)) {
+        return $monthNumber;
     }
 
-    /** @test */
-    public function user_can_edit_a_product()
-    {
-        $unit = factory(Unit::class)->create(['name' => 'Testing 123']);
-        $this->loginAsUser();
-        $product = factory(Product::class)->create();
+    $months = getMonths();
+    $monthNumber = monthNumber($monthNumber);
 
-        $this->visit(route('products.index'));
-        $this->click('edit-product-'.$product->id);
-        $this->seePageIs(route('products.index', ['action' => 'edit', 'id' => $product->id]));
+    return $months[$monthNumber];
+}
 
-        $this->type('Product 1', 'name');
-        $this->type('1000', 'cash_price');
-        $this->type('1200', 'credit_price');
-        $this->type($unit->id, 'unit_id');
-        $this->press(trans('product.update'));
+function getMonths()
+{
+    return [
+        '01' => __('time.months.01'),
+        '02' => __('time.months.02'),
+        '03' => __('time.months.03'),
+        '04' => __('time.months.04'),
+        '05' => __('time.months.05'),
+        '06' => __('time.months.06'),
+        '07' => __('time.months.07'),
+        '08' => __('time.months.08'),
+        '09' => __('time.months.09'),
+        '10' => __('time.months.10'),
+        '11' => __('time.months.11'),
+        '12' => __('time.months.12'),
+    ];
+}
 
-        $this->seeInDatabase('products', [
-            'name'         => 'Product 1',
-            'cash_price'   => 1000,
-            'credit_price' => 1200,
-        ]);
+function getYears()
+{
+    $yearRange = range(2017, date('Y'));
+    foreach ($yearRange as $year) {
+        $years[$year] = $year;
     }
 
-    /** @test */
-    public function user_can_delete_a_product()
-    {
-        $this->loginAsUser();
-        $product = factory(Product::class)->create();
+    return $years;
+}
 
-        $this->visit(route('products.index'));
-        $this->click('del-product-'.$product->id);
-        $this->seePageIs(route('products.index', ['action' => 'delete', 'id' => $product->id]));
-
-        $this->seeInDatabase('products', [
-            'id' => $product->id,
-        ]);
-
-        $this->press(trans('app.delete_confirm_button'));
-
-        $this->dontSeeInDatabase('products', [
-            'id' => $product->id,
-        ]);
+function monthDateArray($year, $month)
+{
+    $dateCount = Carbon\Carbon::parse($year.'-'.$month)->format('t');
+    $dates = [];
+    foreach (range(1, $dateCount) as $dateNumber) {
+        $dates[] = str_pad($dateNumber, 2, '0', STR_PAD_LEFT);
     }
 
-    /** @test */
-    public function user_can_delete_a_product_within_search_query()
-    {
-        $this->loginAsUser();
-        $product = factory(Product::class)->create(['name' => 'Product 123']);
-
-        $this->visit(route('products.index', ['q' => '123']));
-        $this->click('del-product-'.$product->id);
-
-        $this->seePageIs(route('products.index', ['action' => 'delete', 'id' => $product->id, 'q' => '123']));
-        $this->seeInDatabase('products', [
-            'id' => $product->id,
-        ]);
-
-        $this->press(trans('app.delete_confirm_button'));
-
-        $this->seePageIs(route('products.index', ['q' => '123']));
-        $this->dontSeeInDatabase('products', [
-            'id' => $product->id,
-        ]);
-    }
+    return $dates;
 }

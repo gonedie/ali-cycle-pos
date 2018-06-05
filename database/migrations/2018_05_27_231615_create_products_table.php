@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->unsignedInteger('harga_jual');
-            $table->string('kondisi', 10);
+            $table->string('kondisi');
             $table->integer('type_merk_id')->unsigned();
             $table->timestamps();
 
