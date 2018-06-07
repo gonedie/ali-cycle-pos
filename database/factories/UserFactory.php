@@ -32,7 +32,7 @@ $factory->define(App\Product::class, function (Faker $faker) {
     return [
         'name'         => $faker->name,
         'harga_jual'   => 2000,
-        'kondisi'      => $faker->name,
+        'kondisi'      => 'Baru',
         'type_merk_id' => function(){
             return factory(App\TypeMerk::class)->create()->id;
         },

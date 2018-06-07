@@ -22,30 +22,30 @@ class SearchProductsTest extends TestCase
     }
 
     /** @test */
-    // public function retrieving_product_list_by_ajax_post_request()
-    // {
-    //     // $this->disableExceptionHandling();
-    //     factory(Product::class)->create(['name' => 'Coba 123']);
-    //     factory(Product::class)->create(['name' => 'Produk BMX']);
-    //     $product1 = factory(Product::class)->create(['name' => 'MTB 1 ', 'harga_jual' => 2000]);
-    //     $product2 = factory(Product::class)->create(['name' => 'MTB 2 ', 'harga_jual' => 3000]);
-    //
-    //     $cart = new CartCollection();
-    //     $draft = new CashDraft();
-    //     $cart->add($draft);
-    //
-    //     // $user = $this->loginAsUser();
-    //
-    //     $response = $this->post(route('api.products.search'), [
-    //         'query'     => 'Bis',
-    //         'draftType' => $draft->type,
-    //         'draftKey'  => $draft->draftKey,
-    //     ]);
-    //
-    //     $response->assertSuccessful();
-    //     $response->assertSee($product1->name);
-    //     $response->assertSee(route('cart.add-draft-item', [$draft->draftKey, $product1->id]));
-    //     $response->assertSee($product2->name);
-    //     $response->assertSee(route('cart.add-draft-item', [$draft->draftKey, $product2->id]));
-    // }
+    public function retrieving_product_list_by_ajax_post_request()
+    {
+        // $this->disableExceptionHandling();
+        factory(Product::class)->create(['name' => 'Coba Produk 123']);
+        factory(Product::class)->create(['name' => 'Produk BMX']);
+        $product1 = factory(Product::class)->create(['name' => 'BMX Model 1 ', 'harga_jual' => 2000]);
+        $product2 = factory(Product::class)->create(['name' => 'BMX Model 2 ', 'harga_jual' => 3000]);
+
+        $cart = new CartCollection();
+        $draft = new CashDraft();
+        $cart->add($draft);
+
+        // $user = $this->loginAsUser();
+
+        $response = $this->post(route('api.products.search'), [
+            'query'     => 'Bmx',
+            'draftType' => $draft->type,
+            'draftKey'  => $draft->draftKey,
+        ]);
+
+        $response->assertSuccessful();
+        $response->assertSee($product1->name);
+        $response->assertSee(route('cart.add-draft-item', [$draft->draftKey, $product1->id]));
+        $response->assertSee($product2->name);
+        $response->assertSee(route('cart.add-draft-item', [$draft->draftKey, $product2->id]));
+    }
 }

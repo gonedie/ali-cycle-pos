@@ -9,8 +9,7 @@
     <form action="{{ route('cart.add') }}" method="POST">
         {{ csrf_field() }}
         <p class="text-muted">Anda belum memiliki Draft Transaksi, silakan buat Transaksi Baru:</p>
-        <input type="submit" class="btn btn-default navbar-btn" name="create-cash-draft" id="cash-draft-create-button" value="{{ trans('transaction.create_cash') }}">
-        <input type="submit" class="btn btn-default navbar-btn" name="create-credit-draft" id="credit-draft-create-button" value="{{ trans('transaction.create_credit') }}">
+        <input type="submit" class="btn btn-success navbar-btn" name="create-cash-draft" id="cash-draft-create-button" value="{{ trans('transaction.create') }}">
     </form>
 @endif
 @includeWhen(! CartCollection::isEmpty(), 'cart.partials.transaction-draft-tabs')
