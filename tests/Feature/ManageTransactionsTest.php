@@ -28,7 +28,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
         $transaction1 = factory(Transaksi::class)->create();
         $transaction2 = factory(Transaksi::class)->create();
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index'));
         $this->see($transaction1->invoice_no);
         $this->see($transaction2->invoice_no);
@@ -40,7 +40,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
         $transaction1 = factory(Transaksi::class)->create();
         $transaction2 = factory(Transaksi::class)->create();
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index', ['q' => $transaction2->invoice_no]));
         $this->dontSee($transaction1->invoice_no);
         $this->see($transaction2->invoice_no);
@@ -52,7 +52,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
         $transaction1 = factory(Transaksi::class)->create(['customer' => ['name' => 'Nafies', 'phone' => '081234567890']]);
         $transaction2 = factory(Transaksi::class)->create();
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index', ['q' => 'nafies']));
         $this->see($transaction1->invoice_no);
         $this->dontSee($transaction2->invoice_no);
@@ -64,7 +64,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
         $transaction1 = factory(Transaksi::class)->create(['customer' => ['name' => 'Nafies', 'phone' => '081234567890']]);
         $transaction2 = factory(Transaksi::class)->create();
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index', ['q' => '7890']));
         $this->see($transaction1->invoice_no);
         $this->dontSee($transaction2->invoice_no);
@@ -76,7 +76,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
         $transaction1 = factory(Transaksi::class)->create(['created_at' => '2016-02-01']);
         $transaction2 = factory(Transaksi::class)->create(['created_at' => '2016-02-02']);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index', ['date' => '2016-02-01']));
         $this->see($transaction1->invoice_no);
         $this->dontSee($transaction2->invoice_no);
@@ -91,7 +91,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
         ]);
         $transaction2 = factory(Transaksi::class)->create(['created_at' => '2016-02-01']);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index', ['q' => '123', 'date' => '2016-02-01']));
         $this->see($transaction1->invoice_no);
         $this->dontSee($transaction2->invoice_no);
@@ -106,7 +106,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
         ]);
         $transaction2 = factory(Transaksi::class)->create(['created_at' => '2016-02-01']);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index', ['q' => 'Nafies', 'date' => '2016-02-01']));
         $this->see($transaction1->invoice_no);
         $this->dontSee($transaction2->invoice_no);
@@ -124,7 +124,7 @@ class ManageTransactionsTest extends BrowserKitTestCase
             'created_at' => '2016-02-01',
         ]);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('transactions.index', ['q' => '7890', 'date' => '2016-02-01']));
         $this->see($transaction1->invoice_no);
         $this->dontSee($transaction2->invoice_no);

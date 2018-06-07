@@ -29,7 +29,7 @@ class ManageProductsUnitTest extends BrowserKitTestCase
         $product1 = factory(Product::class)->create(['name' => 'Product Testing 123']);
         $product2 = factory(Product::class)->create(['name' => 'Product Testing 456']);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('products.index'));
         $this->see($product1->name);
         $this->see($product2->name);
@@ -38,7 +38,7 @@ class ManageProductsUnitTest extends BrowserKitTestCase
     /** @test */
     public function user_can_search_product_by_keyword()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $product1 = factory(Product::class)->create(['name' => 'Product Testing 123']);
         $product2 = factory(Product::class)->create(['name' => 'Product Testing 456']);
 
@@ -54,7 +54,7 @@ class ManageProductsUnitTest extends BrowserKitTestCase
     public function user_can_create_a_product()
     {
         $type = factory(TypeMerk::class)->create(['nama_type' => 'Type Testing 123']);
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('products.index'));
 
         $this->click(trans('product.create'));
@@ -80,7 +80,7 @@ class ManageProductsUnitTest extends BrowserKitTestCase
     public function user_can_edit_a_product()
     {
         $type = factory(TypeMerk::class)->create(['nama_type' => 'Testing 123']);
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $product = factory(Product::class)->create();
 
         $this->visit(route('products.index'));
@@ -104,7 +104,7 @@ class ManageProductsUnitTest extends BrowserKitTestCase
     public function user_can_edit_a_product_within_search_query()
     {
         $unit = factory(TypeMerk::class)->create(['nama_type' => 'Testing 123']);
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $product = factory(Product::class)->create(['name' => 'Testing 123']);
 
         $this->visit(route('products.index', ['q' => '123']));
@@ -129,7 +129,7 @@ class ManageProductsUnitTest extends BrowserKitTestCase
     /** @test */
     public function user_can_delete_a_product()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $product = factory(Product::class)->create();
 
         $this->visit(route('products.index'));
@@ -150,7 +150,7 @@ class ManageProductsUnitTest extends BrowserKitTestCase
     /** @test */
     public function user_can_delete_a_product_within_search_query()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $product = factory(Product::class)->create(['name' => 'Product 123']);
 
         $this->visit(route('products.index', ['q' => '123']));

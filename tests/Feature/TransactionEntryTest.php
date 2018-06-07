@@ -28,7 +28,7 @@ class TransactionEntryTest extends BrowserKitTestCase
     /** @test */
     public function user_can_visit_transaction_drafts_page()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         // Add new draft to collection
         $cart = new CartCollection();
@@ -43,7 +43,7 @@ class TransactionEntryTest extends BrowserKitTestCase
     /** @test */
     public function user_can_create_transaction_draft_by_transaction_create_button()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('cart.index'));
 
         $this->press(trans('transaction.create'));
@@ -56,7 +56,7 @@ class TransactionEntryTest extends BrowserKitTestCase
     public function user_can_search_product_on_transaction_draft_page()
     {
         $product = factory(Product::class)->create(['name' => 'Testing Produk 1']);
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
         $draft = new CashDraft();
@@ -84,7 +84,7 @@ class TransactionEntryTest extends BrowserKitTestCase
     {
         $product1 = factory(Product::class)->create(['name' => 'Testing Produk 1', 'harga_jual' => 400]);
         $product2 = factory(Product::class)->create(['name' => 'Testing Produk 2', 'harga_jual' => 1000]);
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
         $draft = new CashDraft();
@@ -134,7 +134,7 @@ class TransactionEntryTest extends BrowserKitTestCase
         $cart->addItemToDraft($draft->draftKey, $item1);
         $cart->addItemToDraft($draft->draftKey, $item2);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('cart.show', $draft->draftKey));
 
         $this->submitForm('update-item-0', [
@@ -173,7 +173,7 @@ class TransactionEntryTest extends BrowserKitTestCase
         $cart->addItemToDraft($draft->draftKey, $item1);
         $cart->addItemToDraft($draft->draftKey, $item2);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('cart.show', $draft->draftKey));
 
         $this->type('Nafies', 'customer[name]');
@@ -207,7 +207,7 @@ class TransactionEntryTest extends BrowserKitTestCase
         $cart->addItemToDraft($draft->draftKey, $item1);
         $cart->addItemToDraft($draft->draftKey, $item2);
 
-        // $this->loginAsUser();
+        $this->loginAsUser();
         $this->visit(route('cart.show', $draft->draftKey));
 
         $this->type('Nafies', 'customer[name]');
@@ -251,7 +251,7 @@ class TransactionEntryTest extends BrowserKitTestCase
         ];
         $cart->updateDraftAttributes($draft->draftKey, $draftAttributes);
 
-        // $user = $this->loginAsUser();
+        $user = $this->loginAsUser();
         $this->visit(route('cart.show', [$draft->draftKey, 'action' => 'confirm']));
 
         $this->press(trans('transaction.save'));

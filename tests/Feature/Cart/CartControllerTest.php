@@ -16,7 +16,7 @@ class CartControllerTest extends TestCase
     /** @test */
     public function user_can_add_new_draft_into_cart()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
 
@@ -31,7 +31,7 @@ class CartControllerTest extends TestCase
     /** @test */
     public function user_can_add_item_product_into_cash_draft()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
         $draft = new CashDraft();
@@ -54,7 +54,7 @@ class CartControllerTest extends TestCase
     /** @test */
     public function user_can_remove_item_product_from_a_transaction_draft()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
         $cashDraft = new CashDraft();
@@ -80,7 +80,7 @@ class CartControllerTest extends TestCase
     /** @test */
     public function user_can_remove_a_transaction_draft_from_cart()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
         $cashDraft = new CashDraft();
@@ -100,7 +100,7 @@ class CartControllerTest extends TestCase
     /** @test */
     public function user_can_destroy_cart()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
         $cashDraft = new CashDraft();
@@ -119,7 +119,7 @@ class CartControllerTest extends TestCase
     /** @test */
     public function user_can_empty_out_transaction_draft()
     {
-        // $this->loginAsUser();
+        $this->loginAsUser();
 
         $cart = new CartCollection();
         $cashDraft = new CashDraft();
@@ -143,7 +143,7 @@ class CartControllerTest extends TestCase
   /** @test */
   public function user_can_update_draft_item_qty_and_item_discount_in_a_draft()
   {
-      // $this->loginAsUser();
+      $this->loginAsUser();
 
       $cart = new CartCollection();
       $cashDraft = new CashDraft();

@@ -35,6 +35,7 @@ class ManageSupplierTest extends BrowserKitTestCase
           'alamat'  => 'Jl.Pandanaran 10'
         ]);
 
+        $this->loginAsUser();
         $this->visit(route('supplier.index'));
         $this->see($supplier1->nama); $this->see($supplier1->tlpn); $this->see($supplier1->alamat);
         $this->see($supplier2->nama); $this->see($supplier2->tlpn); $this->see($supplier2->alamat);
@@ -43,6 +44,7 @@ class ManageSupplierTest extends BrowserKitTestCase
     /** @test */
     public function user_can_create_a_supplier()
     {
+        $this->loginAsUser();
         $this->visit(route('supplier.index'));
 
         $this->click(trans('supplier.create'));
@@ -68,7 +70,7 @@ class ManageSupplierTest extends BrowserKitTestCase
     {
         $supplier = factory(Supplier::class)->create();
 
-
+        $this->loginAsUser();
         $this->visit(route('supplier.index'));
         $this->click('edit-supplier-'.$supplier->id);
         $this->seePageIs(route('supplier.index', ['action' => 'edit', 'id' => $supplier->id]));
@@ -91,6 +93,7 @@ class ManageSupplierTest extends BrowserKitTestCase
     /** @test */
     public function user_can_delete_a_unit()
     {
+        $this->loginAsUser();
         $supplier = factory(Supplier::class)->create();
 
         $this->visit(route('supplier.index'));

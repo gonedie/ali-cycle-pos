@@ -28,6 +28,7 @@ class ManageTypeMerkTest extends BrowserKitTestCase
         $type1 = factory(TypeMerk::class)->create(['nama_type' => 'Type Testing 123']);
         $type2 = factory(TypeMerk::class)->create(['nama_type' => 'Type Testing 456']);
 
+        $this->loginAsUser();
         $this->visit(route('type-merk.index'));
         $this->see($type1->nama_type);
         $this->see($type2->nama_type);
@@ -36,6 +37,7 @@ class ManageTypeMerkTest extends BrowserKitTestCase
     /** @test */
     public function user_can_create_a_type()
     {
+        $this->loginAsUser();
         $this->visit(route('type-merk.index'));
 
         $this->click(trans('type.create'));
@@ -55,8 +57,8 @@ class ManageTypeMerkTest extends BrowserKitTestCase
     /** @test */
     public function user_can_edit_a_unit()
     {
+        $this->loginAsUser();
         $type = factory(TypeMerk::class)->create();
-
 
         $this->visit(route('type-merk.index'));
         $this->click('edit-unit-'.$type->id);
@@ -76,6 +78,7 @@ class ManageTypeMerkTest extends BrowserKitTestCase
     /** @test */
     public function user_can_delete_a_unit()
     {
+        $this->loginAsUser();
         $type = factory(TypeMerk::class)->create();
 
         $this->visit(route('type-merk.index'));
@@ -96,6 +99,7 @@ class ManageTypeMerkTest extends BrowserKitTestCase
     /** @test */
     public function user_can_not_delete_a_unit_that_has_product()
     {
+        $this->loginAsUser();
         $product = factory(Product::class)->create();
         $unitId = $product->type_merk_id;
 

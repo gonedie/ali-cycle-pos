@@ -12,10 +12,10 @@ abstract class BrowserKitTestCase extends BaseTestCase
 
     public $baseUrl = 'http://localhost';
 
-    // protected function loginAsUser()
-    // {
-    //     $user = factory(User::class)->create();
-    //     $this->actingAs($user);
-    //     return $user;
-    // }
+    protected function loginAsUser()
+    {
+        $user = factory(User::class)->create();
+        $this->actingAs($user);
+        return $user;
+    }
 }
