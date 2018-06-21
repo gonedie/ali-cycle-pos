@@ -21,12 +21,10 @@ class CreateTransaksisTable extends Migration
             $table->unsignedInteger('payment');
             $table->unsignedInteger('total');
             $table->integer('user_id')->unsigned();
-            $table->integer('product_id')->unsigned();
             $table->integer('stok_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('stok_id')->references('id')->on('stoks');
         });
     }

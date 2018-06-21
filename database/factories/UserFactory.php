@@ -52,9 +52,6 @@ $factory->define(App\Transaksi::class, function (Faker $faker) {
         'user_id' => function(){
             return factory(App\User::class)->create()->id;
         },
-        'product_id' => function(){
-            return factory(App\Product::class)->create()->id;
-        },
         'stok_id' => function(){
             return factory(App\Stok::class)->create()->id;
         },

@@ -4,7 +4,7 @@ namespace App\Cart;
 
 use App\Product;
 use App\Transaksi;
-
+use App\Stok;
 /**
  * Transaction Draft Interface.
  */
@@ -117,8 +117,7 @@ abstract class TransactionDraft
         $transaction->customer = $this->customer;
         $transaction->payment = $this->payment;
         $transaction->total = $this->getTotal();
-        $transaction->user_id = 1;
-        $transaction->product_id = 1;
+        $transaction->user_id = auth()->id() ?: 1;
         $transaction->stok_id = 1;
 
         $transaction->save();

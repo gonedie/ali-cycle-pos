@@ -58,7 +58,7 @@
                   <ul class="dropdown-menu dropdown-user">
                       <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                       </li>
-                      <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                      <li><a href="{{ url('/admin/change-password') }}"><i class="fa fa-gear fa-fw"></i> Change Password</a>
                       </li>
                       <li class="divider"></li>
                       <li>
@@ -112,10 +112,10 @@
           $('div.notifier').not('.alert-important').delay(5000).fadeOut(350);
       </script>
       <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
+          $(document).ready(function(){
+              $('[data-toggle="tooltip"]').tooltip();
+          });
+      </script>
       @yield('script')
     </body>
 </html>

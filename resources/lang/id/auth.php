@@ -2,7 +2,7 @@
 
 return [
 
-    'failed'                    => 'Identitas tersebut tidak cocok dengan data kami.',
+    'failed'                    => 'Kombinasi username dan password tidak valid. Coba lagi!',
     'throttle'                  => 'Terlalu banyak usaha masuk. Silahkan coba lagi dalam :seconds detik.',
     'username'                  => 'Username',
     'password'                  => 'Password',

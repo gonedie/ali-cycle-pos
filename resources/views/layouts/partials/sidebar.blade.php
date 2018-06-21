@@ -28,25 +28,16 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                          <a href="#"><i class="fa fa-wrench fa-fw"></i> Inventorie<span class="fa arrow"></span></a>
+                          <a href="#"><i class="fa fa-wrench fa-fw"></i> Inventories<span class="fa arrow"></span></a>
                           <ul class="nav nav-second-level">
                             <li>
-                              <a href="panels-wells.html">Panels and Wells</a>
+                              <a href="#">Stok Kartu</a>
                             </li>
                             <li>
-                              <a href="buttons.html">Buttons</a>
+                              <a href="#">Stok Masuk</a>
                             </li>
                             <li>
-                              <a href="notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                              <a href="typography.html">Typography</a>
-                            </li>
-                            <li>
-                              <a href="icons.html"> Icons</a>
-                            </li>
-                            <li>
-                              <a href="grid.html">Grid</a>
+                              <a href="#">Stok Keluar</a>
                             </li>
                           </ul>
                           <!-- /.nav-second-level -->
@@ -58,7 +49,7 @@
                               {{ link_to_route('cart.index', trans('nav_menu.draft_list'), [], ['class' => 'strong text-primary']) }}
                             </li>
                             <li>
-                              <a href="{{ url('/admin/transactions') }}">List Transactions</a>
+                              <a href="{{ url('/admin/transactions') }}">List Transaksi</a>
                             </li>
                           </ul>
                           <!-- /.nav-second-level -->
@@ -67,13 +58,22 @@
                             <a href="{{ url('/admin/supplier') }}"><i class="fa fa-table fa-fw"></i> Supllier</a>
                         </li>
                         <li>
+                          <a href="#"><i class="fa fa-sitemap fa-fw"></i> Reports<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                            <li>
+                              <a href="{{ url('/admin/reports/sales') }}">Sales</a>
+                            </li>
+                            <li>
+                              <a href="{{ url('#') }}">Laba Rugi</a>
+                            </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Manage Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a href="/admin/users">List User</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

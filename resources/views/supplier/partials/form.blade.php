@@ -13,7 +13,6 @@
                 {{ link_to_route('supplier.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
                 {!! Form::close() !!}
             </div>
-        </div>
     </div>
 @endif
 @if (Request::get('action') == 'edit' && $editableUnit)
@@ -28,7 +27,6 @@
                 {{ link_to_route('supplier.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
                 {!! Form::close() !!}
             </div>
-        </div>
     </div>
 @endif
 @if (Request::get('action') == 'delete' && $editableUnit)

@@ -11,15 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Landing Page Routes...
+Route::get('/', 'LandingPageController@index')->name('page');
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+// Authentication Routes...
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+// Change Password Routes...
+Route::get('/admin/change-password', 'Auth\ChangePasswordController@getChangePassword')->name('change-password');
+Route::post('/admin/change-password', 'Auth\ChangePasswordController@postChangePassword')->name('change-password');
 
 Route::group(['middleware' => 'auth'], function(){
+  /** Main Dashboard */
   Route::get('/admin/dashboard', 'DashboardController@index')->name('dashboard.index');
 
   /** TypeMerks Routes */
@@ -32,6 +37,8 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/admin/products/price-list', ['as' => 'products.price-list', 'uses' => 'ProductsController@priceList']);
   Route::resource('/admin/products', 'ProductsController', ['except' => ['create', 'show', 'edit']]);
 
+  /** Users Routes */
+  Route::resource('/admin/users', 'UserController', ['except' => ['create', 'show', 'edit']]);
 
   /** Cart / Trasanction Draft Routes */
   Route::get('/admin/drafts', 'CartController@index')->name('cart.index');
