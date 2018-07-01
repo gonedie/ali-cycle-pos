@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Transaksi;
 use Illuminate\Http\Request;
 
@@ -36,11 +37,11 @@ class TransactionsController extends Controller
         return view('transactions.receipt', compact('transaction'));
     }
 
-    // public function pdf(Transaksi $transaksi)
-    // {
-    //     // return view('transactions.pdf', compact('transaction'));
-    //     $pdf = PDF::loadView('transactions.pdf', compact('transaction'));
-    //
-    //     return $pdf->stream($transaction->invoice_no.'.faktur.pdf');
-    // }
+    public function pdf(Transaksi $transaction)
+    {
+        // return view('transactions.pdf', compact('transaction'));
+        $pdf = PDF::loadView('transactions.pdf', compact('transaction'));
+
+        return $pdf->stream($transaction->invoice_no.'.faktur.pdf');
+    }
 }

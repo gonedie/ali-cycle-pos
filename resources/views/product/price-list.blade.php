@@ -23,7 +23,7 @@
                         <tr>
                             <td>{{ $key + 1 }})&nbsp;{{ $product->name }} ({{ $product->type_merk->nama_type }})</td>
                             <td class="text-right" style="width:20%">{{ formatRp($product->harga_jual) }}</td>
-                            <td class="text-right" style="width:20%">{{ formatRp($product->kondisi) }}</td>
+                            <td class="text-right" style="width:20%">{{ $product->kondisi }}</td>
                         </tr>
                         @endforeach
                     </tbody>

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('STORE_NAME', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +169,7 @@ return [
 
          Luthfi\FormField\FormFieldServiceProvider::class,
          Laracasts\Flash\FlashServiceProvider::class,
+         Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -231,6 +232,7 @@ return [
         'FormField' => Luthfi\FormField\FormFieldFacade::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'PDF'       => Barryvdh\DomPDF\Facade::class,
 
     ],
 
