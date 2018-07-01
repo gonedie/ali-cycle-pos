@@ -84,7 +84,7 @@ class ProductsController extends Controller
     {
         $products = Product::orderBy('name')->with('type_merk')->get();
 
-        return view('products.price-list', compact('products'));
+        return view('product.price-list', compact('products'));
 
         // $pdf = \PDF::loadView('products.price-list', compact('products'));
         // return $pdf->stream('price-list.pdf');
