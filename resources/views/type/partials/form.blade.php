@@ -3,7 +3,7 @@
 @endif
 @if (Request::get('action') == 'create')
     <div class="panel panel-primary class">
-        <div class="panel-heading"><h3 class="panel-title">{{ trans('type.delete') }}</h3></div>
+        <div class="panel-heading"><h3 class="panel-title">{{ trans('type.create') }}</h3></div>
             <div class="panel-body">
               {!! Form::open(['route' => 'type-merk.store']) !!}
               {!! FormField::text('nama_type', ['label' => trans('type.name'), 'required' => true]) !!}
