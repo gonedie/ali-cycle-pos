@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Stok extends Model
+class HistoryStok extends Model
 {
-    protected $fillable = ['id', 'stok_awal', 'stok_akhir', 'penjualan_stok', 'product_id'];
+    protected $fillable = ['sm_no', 'stok_masuk','harga_beli', 'total', 'product_id'];
 
     public function product()
     {

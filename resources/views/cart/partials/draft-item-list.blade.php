@@ -12,7 +12,6 @@
                     <th>#</th>
                     <th>Nama Item</th>
                     <th>Harga Satuan</th>
-                    <th class="text-right">Diskon per Item</th>
                     <th class="text-center">Qty</th>
                     <th class="text-right">Subtotal</th>
                     <th class="text-center">Action</th>
@@ -30,12 +29,6 @@
                     <td>{{ formatRp($item->price) }}</td>
                         {{ Form::open(['route' => ['cart.update-draft-item', $draft->draftKey], 'method' => 'patch']) }}
                         {{ Form::hidden('item_key', $key) }}
-                    <td class="text-right">
-                        {{ Form::text('item_discount', $item->item_discount, [
-                            'id' => 'item_discount-' . $key,
-                            'style' => 'width:80px;text-align:right']
-                        ) }}
-                    </td>
                     <td class="text-center">
                         {{ Form::number('qty', $item->qty, [
                             'id' => 'qty-' . $key,
@@ -61,11 +54,6 @@
                 <tr>
                     <th colspan="5" class="text-right">{{ trans('transaction.subtotal') }} :</th>
                     <th class="text-right">{{ formatRp($draft->getSubtotal()) }}</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <th colspan="5" class="text-right">{{ trans('transaction.discount_total') }} :</th>
-                    <th class="text-right">{{ formatRp($draft->getDiscountTotal()) }}</th>
                     <th></th>
                 </tr>
                 <tr>

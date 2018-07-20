@@ -33,6 +33,10 @@ Route::group(['middleware' => 'auth'], function(){
   /** Suppliers Routes */
   Route::resource('/admin/supplier', 'SupplierController', ['except' => ['create', 'show', 'edit']]);
 
+  /** Stoks Routes */
+  Route::get('/admin/kartu-stok', ['as' => 'stok.kartuStok', 'uses' => 'StokController@kartuStok']);
+  Route::resource('/admin/stok', 'HistoryStokController', ['except' => ['create']]);
+
   /** Products Routes */
   Route::get('/admin/products/price-list', ['as' => 'products.price-list', 'uses' => 'ProductsController@priceList']);
   Route::resource('/admin/products', 'ProductsController', ['except' => ['create', 'show', 'edit']]);

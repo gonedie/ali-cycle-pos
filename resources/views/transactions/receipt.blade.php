@@ -45,7 +45,6 @@
             <th class="text-right border-bottom">{{ trans('product.price') }}</th>
             <th class="text-right border-bottom" style="width:90px">{{ trans('product.item_subtotal') }}</th>
         </tr>
-        <?php $discountTotal = 0; ?>
         @foreach($transaction->items as $key => $item)
         <tr>
             <td class="strong" colspan="3">{{ $key + 1 }})&nbsp;{{ $item['name'] }} ({{ $item['type_merk'] }})</td>
@@ -53,15 +52,14 @@
         <tr>
             <td class="text-center border-bottom" style="vertical-align: top;">{{ $item['qty'] }}</td>
             <td class="text-right border-bottom">
-                {{ formatRp($item['price']) }} ({{ formatRp($item['item_discount']) }})
+                {{ formatRp($item['price']) }}
             </td>
             <td class="text-right border-bottom">{{ formatRp($item['subtotal']) }}</td>
         </tr>
-        <?php $discountTotal += $item['item_discount_subtotal'] ?>
         @endforeach
         <tr>
             <th colspan="2" class="text-right">{{ trans('transaction.subtotal') }} :</th>
-            <th class="text-right">{{ formatRp($transaction['total'] + $discountTotal) }}</th>
+            <th class="text-right">{{ formatRp($transaction['total']) }}</th>
         </tr>
         <tr>
             <th colspan="2" class="text-right">{{ trans('transaction.total') }} :</th>

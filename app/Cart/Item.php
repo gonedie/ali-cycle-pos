@@ -15,8 +15,6 @@ class Item
     public $type_merk;
     public $price;
     public $qty;
-    public $item_discount = 0;
-    public $item_discount_subtotal = 0;
     public $subtotal;
 
     public function __construct(Product $product, $qty)
@@ -37,16 +35,7 @@ class Item
             $this->subtotal = $this->price * $this->qty;
         }
 
-        if (isset($newItemData['item_discount'])) {
-            $this->setItemDiscount($newItemData['item_discount']);
-        }
-
         return $this;
     }
 
-    public function setItemDiscount(int $discount)
-    {
-        $this->item_discount = $discount;
-        $this->item_discount_subtotal = $discount * $this->qty;
-    }
 }

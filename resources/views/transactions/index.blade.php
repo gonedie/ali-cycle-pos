@@ -58,7 +58,7 @@
                     <td class="text-right">{{ formatRp($transaction->total) }}</td>
                     <td class="text-center">
                         {{ link_to_route('transactions.show', trans('app.show'), $transaction->invoice_no) }} |
-                        {{ link_to_route('transactions.receipt', trans('app.print'), $transaction->invoice_no) }}
+                        {{ link_to_route('transactions.receipt', trans('app.print'), [$transaction->invoice_no], ['target' => '_blank']) }}
                     </td>
                 </tr>
                 @empty

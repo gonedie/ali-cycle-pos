@@ -31,7 +31,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+              <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">Ali Cycle | Admin v1.0</a>
           </div>
           <!-- /.navbar-header -->
 
@@ -56,8 +56,6 @@
                       <i class="fa fa-caret-down"></i>
                   </a>
                   <ul class="dropdown-menu dropdown-user">
-                      <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                      </li>
                       <li><a href="{{ url('/admin/change-password') }}"><i class="fa fa-gear fa-fw"></i> Change Password</a>
                       </li>
                       <li class="divider"></li>
@@ -115,6 +113,15 @@
           $(document).ready(function(){
               $('[data-toggle="tooltip"]').tooltip();
           });
+      </script>
+      <script>
+          (function() {
+              $('.date-select').datetimepicker({
+                  timepicker: false,
+                  format:'Y-m-d',
+                  closeOnDateSelect: true
+              });
+          })();
       </script>
       @yield('script')
     </body>

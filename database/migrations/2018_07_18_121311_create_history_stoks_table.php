@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransaksisTable extends Migration
+class CreateHistoryStoksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateTransaksisTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaksis', function (Blueprint $table) {
+        Schema::create('history_stoks', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('invoice_no', 8)->unique();
-            $table->text('items');
-            $table->string('customer');
-            $table->unsignedInteger('payment');
+            $table->char('sm_no', 8)->unique();
+            $table->char('stok_masuk');
+            $table->unsignedInteger('harga_beli');
             $table->unsignedInteger('total');
-            $table->integer('user_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
@@ -34,6 +33,6 @@ class CreateTransaksisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksis');
+        Schema::dropIfExists('history_stoks');
     }
 }

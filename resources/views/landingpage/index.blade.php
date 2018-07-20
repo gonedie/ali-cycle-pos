@@ -34,8 +34,6 @@
                 <div class="main-menubar d-flex align-items-center">
                   <nav class="hide">
                     <a href="{{ url('/') }}">Home</a>
-                    <a href="generic.html">Generic</a>
-                    <a href="elements.html">Elements</a>
                   </nav>
                   <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
                 </div>
@@ -58,18 +56,18 @@
           <div class="item d-flex align-items-center">
             <div class="container">
               <div class="content">
-                <h1 class="text-white text-uppercase">Instead of eating, <br> you should feel the garnishing</h1>
-                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor  <br>incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+                <h1 class="text-white text-uppercase">Ali Cycle, <br> Toko Sepeda Terpercaya</h1>
+                <p class="text-white">Melayani anda dengan sepenuh hati dan jujur para penggemar & pecinta sepeda.   <br>Kami menyediakan berbagai macam jenis dan merk sepeda mulai dari anak-anak sampai dewasa.</p>
+                <a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Datang di toko kami</span><span class="lnr lnr-arrow-down"></span></a>
               </div>
             </div>
           </div>
           <div class="item d-flex align-items-center">
             <div class="container">
               <div class="content">
-                <h1 class="text-white text-uppercase">Instead of eating, <br> you should feel the garnishing</h1>
-                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor  <br>incididunt ut labore et dolore magna aliqua.</p>
-                <a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+                <h1 class="text-white text-uppercase">Ali Cycle, <br> Toko Sepeda Terpercaya</h1>
+                <p class="text-white">Melayani anda dengan sepenuh hati dan jujur para penggemar & pecinta sepeda.   <br>Kami menyediakan berbagai macam jenis dan merk sepeda mulai dari anak-anak sampai dewasa.</p>
+                <a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Datang di toko kami</span><span class="lnr lnr-arrow-down"></span></a>
               </div>
             </div>
           </div>
@@ -86,8 +84,8 @@
                     <span class="lnr lnr-sun"></span>
                   </div>
                   <div class="desc text-center">
-                    <h6 class="title text-uppercase">Stunning Visuals</h6>
-                    <p>Here, I focus on a range of items and features that we use in life without giving them a second thought such as Coca Cola, body</p>
+                    <h6 class="title text-uppercase">Sepeda Baru</h6>
+                    <p>Menjual berbagai macam jenis sepeda dengan kondisi baru atau bekas </p>
                   </div>
                 </div>
               </div>
@@ -97,8 +95,8 @@
                     <span class="lnr lnr-code"></span>
                   </div>
                   <div class="desc text-center">
-                    <h6 class="title text-uppercase">Clean Code</h6>
-                    <p>Over 92% of computers are infected with Adware and spyware. Such software is rarely accompanied by uninstall utility </p>
+                    <h6 class="title text-uppercase">Aksesoris Sepeda</h6>
+                    <p>Menjual berbagai macam aksesoris atau spare part sepeda </p>
                   </div>
                 </div>
               </div>
@@ -108,8 +106,8 @@
                     <span class="lnr lnr-clock"></span>
                   </div>
                   <div class="desc text-center">
-                    <h6 class="title text-uppercase">Punctuality</h6>
-                    <p>If you own an Iphone, you’ve probably already worked out how much fun it is to use it to watch movies-it has that nice big screen</p>
+                    <h6 class="title text-uppercase">Service Sepeda</h6>
+                    <p>Melayani jasa perbaikan atau service sepeda</p>
                   </div>
                 </div>
               </div>
@@ -146,45 +144,51 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <div class="section-title text-center">
-                  <h3>Our Amazing Works</h3>
-                  <span class="text-uppercase">Re-imagining the way</span>
+                  <h3>Jenis Kategori Sepeda Kami</h3>
+                  <span class="text-uppercase">Berbagai macam tipe sepeda</span>
                 </div>
               </div>
             </div>
             <div class="active-works-carousel mt-40">
               <div class="item">
-                <div class="thumb" style="background: url(landingpage/img/c1.jpg);"></div>
+                <div class="thumb" style="background: url(landingpage/img/mtb.png);"></div>
                 <div class="caption text-center">
-                  <h6 class="text-uppercase">Vector Illustration</h6>
-                  <p>LCD screens are uniquely modern in style, and the liquid crystals <br> that make them work have allowed humanity to</p>
+                  <h6 class="text-uppercase">Montain Bike (MTB)</h6>
+                  <p>Sepeda Gunung atau biasa disebut MTB ini dirancang untuk jalur off-road dengan rintangan
+                    minimum hingga menengah. Saat memakai Hardtail MTB, saat mengayuh, kamu akan merasakan kayuhan yang
+                    sangat baik.</p>
                 </div>
               </div>
               <div class="item">
-                <div class="thumb" style="background: url(landingpage/img/c1.jpg);"></div>
+                <div class="thumb" style="background: url(landingpage/img/onthel.jpg);"></div>
                 <div class="caption text-center">
-                  <h6 class="text-uppercase">Vector Illustration</h6>
-                  <p>LCD screens are uniquely modern in style, and the liquid crystals <br> that make them work have allowed humanity to</p>
+                  <h6 class="text-uppercase">Ontel Klasik</h6>
+                  <p>Sepeda ontel ini sering disebut dengan sepeda kebo, atau pit pancal. Sepeda ini sangat klasik karena mengacu
+                  pada desain Belanda bercirikan posisi duduk tegak dan memiliki reputasi yang sangat kuat dan berkualitas tinggi</p>
                 </div>
               </div>
               <div class="item">
-                <div class="thumb" style="background: url(landingpage/img/c1.jpg);"></div>
+                <div class="thumb" style="background: url(landingpage/img/baby.jpg);"></div>
                 <div class="caption text-center">
-                  <h6 class="text-uppercase">Vector Illustration</h6>
-                  <p>LCD screens are uniquely modern in style, and the liquid crystals <br> that make them work have allowed humanity to</p>
+                  <h6 class="text-uppercase">Baby Walker</h6>
+                  <p> Baby walker sering dianggap sebagai alat bantu bayi belajar berjalan. Selain itu,
+                    dengan baby walker, orangtua bisa mengalihkan perhatian bayi sejenak, bayi bisa bermain dan
+                    berjelajah sendiri selama orangtua menyelesaikan pekerjaannya. </p>
                 </div>
               </div>
               <div class="item">
-                <div class="thumb" style="background: url(landingpage/img/c1.jpg);"></div>
+                <div class="thumb" style="background: url(landingpage/img/bmx.jpg);"></div>
                 <div class="caption text-center">
-                  <h6 class="text-uppercase">Vector Illustration</h6>
-                  <p>LCD screens are uniquely modern in style, and the liquid crystals <br> that make them work have allowed humanity to</p>
+                  <h6 class="text-uppercase">BMX</h6>
+                  <p>Sepeda ini dirancang khusus untuk yang hobi melakukan loncatan–loncatan tinggi dan ekstrim sambil berkendara di jalanan perkotaan atau tempat khusus. </p>
                 </div>
               </div>
               <div class="item">
-                <div class="thumb" style="background: url(landingpage/img/c1.jpg);"></div>
+                <div class="thumb" style="background: url(landingpage/img/3.jpg);"></div>
                 <div class="caption text-center">
-                  <h6 class="text-uppercase">Vector Illustration</h6>
-                  <p>LCD screens are uniquely modern in style, and the liquid crystals <br> that make them work have allowed humanity to</p>
+                  <h6 class="text-uppercase">Sepeda Roda Tiga</h6>
+                  <p>Sepeda ini dirancang untuk membuat anak-anak usia 2-5 tahun senang ketika jalan-jalan menggunakan Sepeda
+                  ini karena dilengkapi berbagai macam mainan</p>
                 </div>
               </div>
             </div>

@@ -13,15 +13,15 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert(array(
             [
-                'name'      => 'Administrator',
+                'name'      => 'Achmad Kafin',
                 'username'  => 'admin',
                 'password'  => bcrypt('secret'),
                 'level'     => 1,
                 'remember_token' => str_random(10),
             ],
             [
-              'name'      => 'Kasir',
-              'username'  => 'kasir',
+              'name'      => 'Dian Santika',
+              'username'  => 'admin2',
               'password'  => bcrypt('secret'),
               'level'     => 2,
               'remember_token' => str_random(10),

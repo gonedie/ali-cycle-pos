@@ -9,7 +9,6 @@
                             <th>#</th>
                             <th>Nama Item</th>
                             <th class="text-right">Harga Satuan</th>
-                            <th class="text-right">Diskon per Item</th>
                             <th class="text-center">Qty</th>
                             <th class="text-right">Subtotal</th>
                         </tr>
@@ -20,7 +19,6 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->name }}</td>
                             <td class="text-right">{{ formatRp($item->price) }}</td>
-                            <td class="text-right">{{ formatRp($item->item_discount) }}</td>
                             <td class="text-center">{{ $item->qty }}</td>
                             <td class="text-right">{{ formatRp($item->subtotal) }}</td>
                         </tr>
@@ -29,17 +27,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-
-
-                            <th colspan="5" class="text-right">{{ trans('transaction.subtotal') }} :</th>
+                            <th colspan="4" class="text-right">{{ trans('transaction.subtotal') }} :</th>
                             <th class="text-right">{{ formatRp($draft->getSubtotal()) }}</th>
                         </tr>
                         <tr>
-                            <th colspan="5" class="text-right">{{ trans('transaction.discount_total') }} :</th>
-                            <th class="text-right">{{ formatRp($draft->getDiscountTotal()) }}</th>
-                        </tr>
-                        <tr>
-                            <th colspan="5" class="text-right">{{ trans('transaction.total') }} :</th>
+                            <th colspan="4" class="text-right">{{ trans('transaction.total') }} :</th>
                             <th class="text-right">{{ formatRp($draft->getTotal()) }}</th>
                         </tr>
                     </tfoot>

@@ -51,6 +51,7 @@
                     <tr><th>{{ __('product.kondisi') }}</th><td>{{ $editableProduct->kondisi }}</td></tr>
                 </tbody>
             </table>
+            {!! $errors->first('product_id', '<span class="form-error small">:message</span>') !!}
             <hr>
             {{ __('product.delete_confirm') }}
         </div>

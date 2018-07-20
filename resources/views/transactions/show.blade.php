@@ -9,7 +9,7 @@
     <small>{{ trans('transaction.detail') }}</small>
     <div class="pull-right">
       {{ link_to_route('transactions.pdf', trans('transaction.invoice_pdf'), [$transaction->invoice_no], ['class' => 'btn btn-success']) }}
-      {{ link_to_route('transactions.receipt', trans('transaction.invoice_print'), [$transaction->invoice_no], ['class' => 'btn btn-primary']) }}
+      {{ link_to_route('transactions.receipt', trans('transaction.invoice_print'), [$transaction->invoice_no], ['class' => 'btn btn-primary', 'target' => '_blank']) }}
     </div>
 </h3>
 <div class="row">
@@ -47,7 +47,6 @@
                 </tr>
             </thead>
             <tbody>
-            <?php $discountTotal = 0; ?>
             @foreach($transaction->items as $key => $item)
                 <tr>
                     <td>{{ $key + 1 }}</td>
@@ -59,7 +58,6 @@
                     <td class="text-center">{{ $item['qty'] }}</td>
                     <td class="text-right">{{ formatRp($item['subtotal']) }}</td>
                 </tr>
-                <?php $discountTotal += $item['item_discount_subtotal'] ?>
             @endforeach
             </tbody>
             <tfoot>

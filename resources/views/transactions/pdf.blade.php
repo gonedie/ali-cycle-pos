@@ -100,14 +100,15 @@
                           </tbody>
                       </table>
                       <br>
+                      <hr style="width:550px; border-width:0.5px">
                   </td>
               </tr>
-              <?php $discountTotal = 0; ?>
+
               @foreach(collect($transaction->items)->chunk(30) as $chuncked30Items)
               <tr>
                   @foreach($chuncked30Items->chunk(10) as $chunckedItems)
-                  <td style="width:310px;padding-right: 10px">
-                      <table class="main-table">
+                  <td colspan="3" style="width:310px;padding-right: 10px">
+                      <table class="main-table" style="width:400px;margin: auto;">
                           <tbody>
                               <tr><th class="border-bottom" colspan="3">@if ($loop->first) {{ trans('transaction.items') }} @else &nbsp; @endif</th></tr>
                               <tr>
@@ -126,16 +127,12 @@
                                   </td>
                                   <td class="text-right border-bottom">{{ formatRp($item['subtotal']) }}</td>
                               </tr>
-                              <?php $discountTotal += $item['item_discount_subtotal'] ?>
+
                               @endforeach
                               @if ($loop->last && $loop->parent->last)
                               <tr>
                                   <th colspan="2" class="text-right">{{ trans('transaction.subtotal') }} :</th>
-                                  <th class="text-right">{{ formatRp($transaction['total'] + $discountTotal) }}</th>
-                              </tr>
-                              <tr>
-                                  <th colspan="2" class="text-right">{{ trans('transaction.discount_total') }} :</th>
-                                  <th class="text-right">{{ formatRp($discountTotal) }}</th>
+                                  <th class="text-right">{{ formatRp($transaction['total']) }}</th>
                               </tr>
                               <tr>
                                   <th colspan="2" class="text-right">{{ trans('transaction.total') }} :</th>

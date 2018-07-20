@@ -15,14 +15,9 @@ class CreateStoksTable extends Migration
     {
         Schema::create('stoks', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('sm_no', 8)->unique();
-            $table->integer('stok_masuk');
             $table->integer('stok_awal');
             $table->integer('stok_akhir');
             $table->integer('penjualan_stok');
-            $table->unsignedInteger('harga_beli');
-            $table->unsignedInteger('total');
-            $table->timestamp('tgl_masuk');
             $table->integer('product_id')->unsigned();
             $table->timestamps();
 

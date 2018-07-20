@@ -59,7 +59,7 @@ abstract class TransactionDraft
 
     public function getTotal()
     {
-        return $this->items()->sum('subtotal') - $this->getDiscountTotal();
+        return $this->items()->sum('subtotal');
     }
 
     public function getItemsCount()
@@ -70,11 +70,6 @@ abstract class TransactionDraft
     public function getTotalQty()
     {
         return $this->items()->sum('qty');
-    }
-
-    public function getDiscountTotal()
-    {
-        return $this->items()->sum('item_discount_subtotal');
     }
 
     public function updateItem($itemKey, $newItemData)
@@ -118,7 +113,15 @@ abstract class TransactionDraft
         $transaction->payment = $this->payment;
         $transaction->total = $this->getTotal();
         $transaction->user_id = auth()->id() ?: 1;
-        $transaction->stok_id = 1;
+
+        $stock = new Stok();
+        foreach ($this->getItemsArray() as $item) {
+            $tes = $stock->where('product_id', '=', $item['id'])->first();
+            $tes->penjualan_stok += $item['qty'];
+            $tes->stok_akhir -= $item['qty'];
+
+            $tes->update();
+        }
 
         $transaction->save();
 
@@ -151,8 +154,6 @@ abstract class TransactionDraft
                 'type_merk'              => $item->type_merk,
                 'price'                  => $item->price,
                 'qty'                    => $item->qty,
-                'item_discount'          => $item->item_discount,
-                'item_discount_subtotal' => $item->item_discount_subtotal,
                 'subtotal'               => $item->subtotal,
             ];
         }

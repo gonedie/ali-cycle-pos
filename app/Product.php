@@ -16,4 +16,14 @@ class Product extends Model
     {
         return $this->belongsTo(TypeMerk::class);
     }
+
+    public function stok()
+    {
+        return $this->hasMany(Stok::class);
+    }
+
+    public function history()
+    {
+        return $this->hasMany(HistoryStok::class);
+    }
 }

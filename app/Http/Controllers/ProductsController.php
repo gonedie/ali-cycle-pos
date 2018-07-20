@@ -63,6 +63,12 @@ class ProductsController extends Controller
 
     public function destroy(Request $request, Product $product)
     {
+        $this->validate($request, [
+          'product_id' => 'required|exists:products,id|not_exists:history_stoks,product_id|not_exists:stoks,product_id',
+        ], [
+          'product_id.not_exists' => trans('product.undeleteable'),
+        ]);
+
         $requestData = $request->validate([
             'product_id' => 'required',
         ]);

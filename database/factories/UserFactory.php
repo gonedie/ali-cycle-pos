@@ -52,9 +52,6 @@ $factory->define(App\Transaksi::class, function (Faker $faker) {
         'user_id' => function(){
             return factory(App\User::class)->create()->id;
         },
-        'stok_id' => function(){
-            return factory(App\Stok::class)->create()->id;
-        },
         'invoice_no' => str_random(5),
         'items'   => [],
         'customer'=> ['name' => $faker->name, 'phone' => $faker->phoneNumber],
@@ -68,13 +65,20 @@ $factory->define(App\Stok::class, function (Faker $faker) {
         'product_id' => function(){
             return factory(App\Product::class)->create()->id;
         },
-        'sm_no'          => str_random(5),
-        'stok_masuk'     => 10,
         'stok_awal'      => 0,
         'stok_akhir'     => 10,
         'penjualan_stok' => 5,
-        'harga_beli'     => 1000,
-        'total'          => 100000,
-        'tgl_masuk'      => $faker->dateTimeThisYear('+1 month'),
+    ];
+});
+
+$factory->define(App\HistoryStok::class, function (Faker $faker) {
+    return [
+        'product_id' => function(){
+            return factory(App\Product::class)->create()->id;
+        },
+        'sm_no'          => str_random(5),
+        'stok_masuk'     => 10,
+        'harga_beli'     => 5000,
+        'total'          => 50000,
     ];
 });
