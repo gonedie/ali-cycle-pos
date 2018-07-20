@@ -10,6 +10,7 @@
     <div class="pull-right">
         {{ link_to_route('products.price-list', __('product.print_price_list'), [], ['class' => 'btn btn-info']) }}
         {{ link_to_route('products.index', __('product.create'), ['action' => 'create'], ['class' => 'btn btn-success']) }}
+        {{ link_to_route('products.index', __('stok.create'), ['action2' => 'create'], ['class' => 'btn btn-success']) }}
     </div>
 </h3>
 
@@ -63,6 +64,7 @@
     </div>
     <div class="col-md-4">
         @include('product.partials.form')
+        @include('stok.partials.form')
     </div>
 </div>
 @endsection

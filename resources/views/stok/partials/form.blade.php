@@ -1,8 +1,8 @@
 @inject('product', 'App\Product')
-@if (! Request::has('action'))
-{{ link_to_route('stok.index', trans('stok.create'), ['action' => 'create'], ['class' => 'btn btn-success pull-right']) }}
+@if (! Request::has('action2'))
+{{-- {{ link_to_route('products.index', trans('stok.create'), ['action' => 'create'], ['class' => 'btn btn-success pull-right']) }} --}}
 @endif
-@if (Request::get('action') == 'create')
+@if (Request::get('action2') == 'create')
     <div class="panel panel-primary class">
         <div class="panel-heading"><h3 class="panel-title">{{ trans('stok.create') }}</h3></div>
             <div class="panel-body">

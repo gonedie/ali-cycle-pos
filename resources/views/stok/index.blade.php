@@ -6,16 +6,15 @@
 <h3 class="page-header">{{ trans('stok.list-in') }}</h3>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="panel panel-default table-responsive">
             <div class="panel-heading">
                 {{ Form::open(['method' => 'get','class' => 'form-inline pull-left']) }}
                 {!! FormField::text('q', ['value' => request('q'), 'label' => __('product.search'), 'class' => 'input-sm', 'placeholder' => 'Min. 3 huruf...',]) !!}
                 {{ Form::submit(__('product.search'), ['class' => 'btn btn-info btn-sm']) }} |
-                {{ link_to_route('stok.index', __('app.reset')) }}
+                {{ link_to_route('stok.index', __('app.reset')) }}&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
                 {{ Form::close() }}
-                <br>
-                <br>
+
                 {{ Form::open(['method' => 'get','class' => 'form-inline pull-left']) }}
                 {!! FormField::text('date', [
                     'value' => request('date', $date),

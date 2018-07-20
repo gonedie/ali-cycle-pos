@@ -53,10 +53,10 @@ class ManageStoksTest extends BrowserKitTestCase
     {
         $product = factory(Product::class)->create(['name' => 'Product 1']);
         $this->loginAsUser();
-        $this->visit(route('stok.index'));
+        $this->visit(route('products.index'));
 
         $this->click(trans('stok.create'));
-        $this->seePageIs(route('stok.index', ['action' => 'create']));
+        $this->seePageIs(route('products.index', ['action2' => 'create']));
 
         $this->type('4', 'stok_masuk');
         $this->type('1000', 'harga_beli');

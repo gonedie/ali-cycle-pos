@@ -33,6 +33,6 @@ return [
 
     // Attributes
     'name'         => 'Nama Produk',
-    'cash_price'   => 'Harga Tunai',
+    'cash_price'   => 'Harga Jual',
     'credit_price' => 'Harga Kredit',
 ];
