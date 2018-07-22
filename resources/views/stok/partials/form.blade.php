@@ -14,7 +14,7 @@
                   <div class="col-md-10">{!! FormField::price('total', ['label' => trans('stok.total'), 'required' => true]) !!}</div>
                 </div>
                 {!! Form::submit(trans('stok.create'), ['class' => 'btn btn-success']) !!}
-                {{ link_to_route('stok.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
+                {{ link_to_route('products.index', trans('app.cancel'), [], ['class' => 'btn btn-default']) }}
                 {!! Form::close() !!}
             </div>
     </div>

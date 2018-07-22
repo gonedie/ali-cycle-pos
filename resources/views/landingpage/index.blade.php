@@ -121,15 +121,18 @@
             <div class="row align-items-center">
               <div class="col-lg-3">
                 <div class="story-title">
-                  <h3 class="text-white">Our Untold Story</h3>
-                  <span class="text-uppercase text-white">Re-imagining the way</span>
+                  <h4 class="text-white">Kisah Tak Terungkap</h4>
+                  <span class="text-uppercase text-white">Kembali untuk Sehat</span>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="story-box">
-                  <h6 class="text-uppercase">From the part of beginning</h6>
-                  <p>Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization. Societies are becoming more inter-connected. Thoughts from different</p>
-                  <a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+                  <h6 class="text-uppercase">Merayakan Hidup dengan Bersepeda</h6>
+                  <p>"Hidup ini laksana naik sepeda. Untuk mempertahankan keseimbangan, kamu harus tetap bergerak."
+                    <br>Tak ada kesenangan sederhana dan olah raga sehat yang bisa dibandingkan dengan naik sepeda.
+                    <br><br>Source: <a href="https://nasional.kompas.com/read/2010/06/25/09534030/Mereka.Merayakan.Hidup.dengan.Bersepeda" target="_blank" style="color:blue">Kompas</a>
+                  </p>
+                  <a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Datang di toko kami</span><span class="lnr lnr-arrow-down"></span></a>
                 </div>
               </div>
             </div>
@@ -195,33 +198,6 @@
           </div>
         </section>
         <!-- End Amazing Works Area -->
-        <!-- Start Story Area -->
-        <section class="story-area-2">
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-3">
-                <div class="story-title sm-show text-center">
-                  <h3 class="text-white">Our Untold Story</h3>
-                  <span class="text-uppercase text-white">Re-imagining the way</span>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="story-box">
-                  <h6 class="text-uppercase">From the part of beginning</h6>
-                  <p>Usage of the Internet is becoming more common due to rapid advancement of technology and the power of globalization. Societies are becoming more inter-connected. Thoughts from different</p>
-                  <a href="#" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
-                </div>
-              </div>
-              <div class="col-lg-3">
-                <div class="story-title sm-hide text-right">
-                  <h3 class="text-white">Our Untold Story</h3>
-                  <span class="text-uppercase text-white">Re-imagining the way</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- End Story Area -->
         <div class="brand-area">
           <div class="container">
             <div class="total-brand d-flex justify-content-around">
@@ -233,34 +209,6 @@
             </div>
           </div>
         </div>
-        <!-- Start Subscription Area -->
-        <section class="subscription-area">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="section-title text-center">
-                  <h3>Subscribe for our Newsletter</h3>
-                  <span class="text-uppercase">Re-imagining the way</span>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-lg-6">
-                <div id="mc_embed_signup">
-                  <form target="_blank" novalidate action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01" method="get" class="subscription relative">
-                    <input type="email" name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required>
-                    <div style="position: absolute; left: -5000px;">
-                      <input type="text" name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="">
-                    </div>
-                    <button class="primary-btn hover d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></button>
-                    <div class="info"></div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- End Subscription Area -->
         <!-- Start Footer Widget Area -->
         <section class="footer-widget-area">
           <div class="container">

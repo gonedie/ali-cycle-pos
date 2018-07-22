@@ -117,12 +117,10 @@ abstract class TransactionDraft
         $stock = new Stok();
         foreach ($this->getItemsArray() as $item) {
             $tes = $stock->where('product_id', '=', $item['id'])->first();
-            if($tes){
-                $tes->penjualan_stok += $item['qty'];
-                $tes->stok_akhir -= $item['qty'];
+            $tes->penjualan_stok += $item['qty'];
+            $tes->stok_akhir -= $item['qty'];
 
-                $tes->update();
-            }
+            $tes->update();
         }
 
         $transaction->save();

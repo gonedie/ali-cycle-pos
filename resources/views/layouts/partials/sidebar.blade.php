@@ -60,9 +60,6 @@
                             <li>
                               <a href="{{ url('/admin/reports/sales') }}">Sales</a>
                             </li>
-                            <li>
-                              <a href="{{ url('#') }}">Laba Rugi</a>
-                            </li>
                           </ul>
                           <!-- /.nav-second-level -->
                         </li>

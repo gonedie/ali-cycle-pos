@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Stok;
-use App\HistoryStok;
-use App\Transaksi;
 
 class StokController extends Controller
 {
@@ -28,15 +26,5 @@ class StokController extends Controller
             ->paginate(25);
         return view('stok.kartu-stok', compact('stoks', 'date'));
     }
-
-    public function getStokAkhir()
-    {
-        $stok = Stok::all();
-
-
-        return collect($stoks);
-    }
-
-
 
 }

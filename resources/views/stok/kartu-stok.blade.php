@@ -11,7 +11,7 @@
             <div class="panel-heading">
                 {{ Form::open(['method' => 'get','class' => 'form-inline pull-left']) }}
                 {!! FormField::text('q', ['value' => request('q'), 'label' => __('product.search'), 'class' => 'input-sm', 'placeholder' => 'Min. 3 huruf...',]) !!}
-                {{ Form::submit(__('product.search'), ['class' => 'btn btn-info btn-sm']) }}
+                {{ Form::submit(__('product.search'), ['class' => 'btn btn-info btn-sm']) }} |
                 {{ link_to_route('stok.kartuStok', __('app.reset')) }}&nbsp;&nbsp;&nbsp; || &nbsp;&nbsp;&nbsp;
                 {{ Form::close() }}
 

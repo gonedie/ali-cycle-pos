@@ -20,7 +20,7 @@
             <div class="panel-heading">
                 {{ Form::open(['method' => 'get','class' => 'form-inline']) }}
                 {!! FormField::text('q', ['value' => request('q'), 'label' => __('product.search'), 'class' => 'input-sm', 'placeholder' => 'Min. 3 huruf...',]) !!}
-                {{ Form::submit(__('product.search'), ['class' => 'btn btn-sm']) }}
+                {{ Form::submit(__('product.search'), ['class' => 'btn btn-sm btn-info']) }}
                 {{ link_to_route('products.index', __('app.reset')) }}
                 {{ Form::close() }}
             </div>

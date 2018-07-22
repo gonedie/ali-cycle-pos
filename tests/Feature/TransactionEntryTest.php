@@ -6,6 +6,7 @@ use App\Cart\CartCollection;
 use App\Cart\CashDraft;
 use App\Cart\Item;
 use App\Product;
+use App\Stok;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\BrowserKitTestCase;
 
@@ -232,6 +233,10 @@ class TransactionEntryTest extends BrowserKitTestCase
 
         $product1 = factory(Product::class)->create(['harga_jual' => 1000]);
         $product2 = factory(Product::class)->create(['harga_jual' => 2000]);
+
+        $setStokAwal = factory(Stok::class)->create(['stok_awal' => 5, 'product_id' => $product1->id]);
+        $setStokAwal = factory(Stok::class)->create(['stok_awal' => 5, 'product_id' => $product2->id]);
+
         $item1 = new Item($product1, 1);
         $item2 = new Item($product2, 3);
 
@@ -264,9 +269,5 @@ class TransactionEntryTest extends BrowserKitTestCase
             'total'      => 7000,
             'user_id'    => 1,
         ]);
-        // $this->assertTrue(true);
-        // $this->assertTrue(true);
-        // $this->assertTrue(true);
-        // $this->assertTrue(true);
     }
 }

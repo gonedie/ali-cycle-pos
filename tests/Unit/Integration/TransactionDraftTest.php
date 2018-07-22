@@ -163,6 +163,9 @@ class TransactionDraftTest extends TestCase
         $product1 = factory(Product::class)->create(['harga_jual' => 1000]);
         $product2 = factory(Product::class)->create(['harga_jual' => 2000]);
 
+        $setStokAwal = factory(Stok::class)->create(['stok_awal' => 5, 'product_id' => $product1->id]);
+        $setStokAwal = factory(Stok::class)->create(['stok_awal' => 5, 'product_id' => $product2->id]);
+
         $item1 = new Item($product1, 1);
         $item2 = new Item($product2, 3);
 
@@ -189,10 +192,6 @@ class TransactionDraftTest extends TestCase
             'total'      => 7000,
             'user_id'    => 1,
         ]);
-        // $this->assertTrue(true);
-        // $this->assertTrue(true);
-        // $this->assertTrue(true);
-        // $this->assertTrue(true);
     }
 
     /** @test */
