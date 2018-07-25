@@ -22,7 +22,9 @@ class TransactionsController extends Controller
                 if ($date) {
                     $query->where('created_at', 'like', $date.'%');
                 }
-            })->paginate(25);
+            })
+            ->with('user')
+            ->paginate(25);
 
         return view('transactions.index', compact('transactions', 'date'));
     }

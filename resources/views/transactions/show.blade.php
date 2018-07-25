@@ -21,6 +21,7 @@
                     <tbody>
                         <tr><td>{{ trans('transaction.invoice_no') }}</td><td class="text-primary strong">{{ $transaction->invoice_no }}</td></tr>
                         <tr><td>{{ trans('app.date') }}</td><td>{{ $transaction->created_at->format('Y-m-d') }}</td></tr>
+                        <tr><td>{{ trans('transaction.cashier') }}</td><td>{{ $transaction->user->name }}</td></tr>
                         <tr><td>{{ trans('transaction.customer_name') }}</td><td>{{ $transaction->customer['name'] }}</td></tr>
                         <tr><td>{{ trans('transaction.customer_phone') }}</td><td>{{ $transaction->customer['phone'] }}</td></tr>
                         <tr><td>{{ trans('transaction.items_count') }}</td><td>{{ $transaction->items_count }}</td></tr>

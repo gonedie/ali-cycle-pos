@@ -38,6 +38,7 @@
                     <th>{{ trans('app.table_no') }}</th>
                     <th>{{ trans('transaction.invoice_no') }}</th>
                     <th>{{ trans('app.date') }}</th>
+                    <th>{{ trans('transaction.cashier') }}</th>
                     <th>{{ trans('transaction.customer') }}</th>
                     <th>{{ trans('transaction.items_count') }}</th>
                     <th class="text-right">{{ trans('transaction.total') }}</th>
@@ -50,6 +51,7 @@
                     <td>{{ $transactions->firstItem() + $key }}</td>
                     <td>{{ $transaction->invoice_no }}</td>
                     <td>{{ $transaction->created_at->format('Y-m-d') }}</td>
+                    <td>{{ $transaction->user->name }}</td>
                     <td>
                         {{ $transaction->customer['name'] }}
                         {{ $transaction->customer['phone'] ? '(' . $transaction->customer['phone'] . ')' : '' }}
