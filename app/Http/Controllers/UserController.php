@@ -26,13 +26,13 @@ class UserController extends Controller
             'username' => 'required|max:30|unique:users,username,',
             'password' => 'nullable|between:5,15',
         ]);
-        
+
         $newUserData = $request->only('name', 'username');
 
-        if ($request->has('password')) {
-            $newUserData['password'] = $request->get('password');
-        } else {
+        if (empty($request->get('password'))) {
             $newUserData['password'] = 'rahasia';
+        } else {
+            $newUserData['password'] = $request->get('password');
         }
 
         $user = User::create($newUserData);
