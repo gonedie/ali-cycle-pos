@@ -92,7 +92,5 @@ class ProductsController extends Controller
 
         return view('product.price-list', compact('products'));
 
-        // $pdf = \PDF::loadView('products.price-list', compact('products'));
-        // return $pdf->stream('price-list.pdf');
     }
 }
