@@ -26,7 +26,7 @@ Route::post('/admin/change-password', 'Auth\ChangePasswordController@postChangeP
 Route::group(['middleware' => 'auth'], function(){
   /** Main Dashboard */
   Route::get('/admin/dashboard', 'DashboardController@index')->name('dashboard.index');
-
+  Route::get('/home', 'DashboardController@home')->name('home');
   /** TypeMerks Routes */
   Route::resource('/admin/type-merk', 'TypeController', ['except' => ['create', 'show', 'edit']]);
 

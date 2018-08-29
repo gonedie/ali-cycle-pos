@@ -23,7 +23,10 @@ class DashboardController extends Controller
 
         return view('layouts.dashboard', compact('transactions', 'products','type_merks', 'reports', 'stoks'));
     }
-
+    public function home()
+    {
+        return redirect('/admin/dashboard');
+    }
     private function getMonthlyReports()
     {
         $rawQuery = 'DATE(created_at) as date, count(`id`) as count';
